@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Section1</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <style>
+      /* Animación de flores cayendo */
+      .flowers {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .flower {
+        position: absolute;
+        top: -50px; /* empieza fuera de la pantalla */
+        background-image: url('../img/sunflower.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        opacity: 0.8;
+        animation-name: fall;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
+
+      
+            .custom-button {
+        background-color: #7c3aed;
+        color: white;
+        padding: 0.75rem 2rem;
+        border-radius: 9999px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+
+      .custom-button:hover {
+        background-color: #5b21b6;
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(110vh) rotate(360deg);
+          opacity: 0.8;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="section section-1" id="section1">
+      <div class="container mx-auto px-4 py-16 z-10 relative">
+        <h2
+          class="romantic-title text-4xl md:text-5xl text-center text-violet-800 mb-12"
+        >
+          La Mujer Más Hermosa del Mundo
+        </h2>
+        <div
+          class="bg-white bg-opacity-80 rounded-xl shadow-xl p-8 max-w-5xl mx-auto"
+        >
+          <div class="flex flex-col md:flex-row items-center">
+            <!-- Imagen -->
+            <div class="md:w-1/2 mb-6 md:mb-0 flex justify-center">
+              <img
+                style="height: 520px;"
+                src="../img/la_mas_hermosa.jpeg"
+                alt="Foto de la mujer más hermosa"
+                class="w-auto object-cover rounded-2xl shadow-lg border-4 border-violet-200"
+              />
+            </div>
+            <div class="md:w-1/2 md:pl-8">
+              <p
+                class="text-lg text-gray-800 mb-4"
+                style="text-align: justify; line-height: 1.8;"
+              >
+                Amorcito, vivo enamorandome de ti a diario, no sé como lo haces
+                pero cada día te ves más hermosa, y lo maravilloso de ti, es
+                que eres muy hermosa por fuera y lo eres aún más por dentro, tu
+                corazoncito es tan hermoso y delicado como el cristal, amo como
+                iluminas cualquier lugar con tu luz interior, tu sola presencia
+                hace de este mundo un lugar mejor.
+              </p>
+              <p
+                class="text-lg text-gray-800 mb-4"
+                style="text-align: justify; line-height: 1.8;"
+              >
+                Tu sonrisa ilumina mi mundo y hace que mi corazón se acelere.
+                Ni las estrellas más brillantes y bellas del firmamento se
+                comparan a tus ojitos lindos.
+              </p>
+              <p
+                class="text-lg text-gray-800 mb-4"
+                style="text-align: justify; line-height: 1.8;"
+              >
+                No hay palabras suficientes para describir lo hermosa que eres,
+                te amo mucho mi Puchumguita ❤️ ​
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Contenedor para las flores -->
+      <div class="flowers" id="flowers"></div>
+
+      <div class="flex justify-center mt-12" id="atras">
+        <button class="custom-button" onclick="siguiente()" style="margin-inline: 50px;">
+          Siguiente
+        </button>
+      </div>
+
+    </section>
+    <script src="../js/script.js"></script>
+    <script>
+      // Crear flores animadas cayendo
+      const flowersContainer = document.getElementById('flowers');
+      const flowerCount = 100;
+
+      for (let i = 0; i < flowerCount; i++) {
+        const flower = document.createElement('div');
+        flower.classList.add('flower');
+
+        // Posición horizontal aleatoria (0 a 100 vw)
+        flower.style.left = Math.random() * 100 + 'vw';
+
+        // Tamaño aleatorio entre 20 y 40 px
+        const size = 20 + Math.random() * 20;
+        flower.style.width = size + 'px';
+        flower.style.height = size + 'px';
+
+        // Duración y delay aleatorio para la animación
+        flower.style.animationDuration = (5 + Math.random() * 10) + 's';
+        flower.style.animationDelay = (Math.random() * 15) + 's';
+
+        flowersContainer.appendChild(flower);
+      }
+
+      function siguiente() {window.location.href = "mejor.html";}
+
+    </script>
+  </body>
+</html>
